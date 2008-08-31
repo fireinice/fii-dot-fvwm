@@ -1,0 +1,152 @@
+# Menustyle * fvwm, Font -adobe-times-bold-r-*-*-14-*-*-*-*-*-*-*
+# MenuStyle * Foreground maroon, Background grey60, Greyed grey40
+
+# ColormapFocus FollowsMouse
+
+# # default Styles:
+# # make sure these fonts exist on your system:
+# Style *           IconFont -adobe-times-bold-r-*-*-18-*-*-*-*-*-*-*
+# Style *           HilightFore black, HilightBack palevioletred
+# Style *           BorderWidth 2, HandleWidth 1
+# Style *           Icon unknown1.xpm, Color lightgrey/dimgrey
+# Style *           MWMFunctions, MWMDecor, HintOverride
+# Style *           DecorateTransient, NoPPosition
+# Style *           IconBox 0 -10 -280 -1
+# Style *           FocusFollowsMouse
+# Style *           TileCascadePlacement
+
+
+# # Styles for various Fvwm modules:
+# Style "Fvwm*"       NoTitle,  Sticky, WindowListSkip
+# Style "Fvwm*"       BorderWidth 2, CirculateSkipIcon, CirculateSkip
+# Style "FvwmPager"   StaysOnTop
+# Style "FvwmBanner"  StaysOnTop
+# Style "FvwmButtons" Icon toolbox.xpm, ClickToFocus
+
+#下面是定义了窗口使用的色彩。（其中41和42号是透明）其他文件里的色彩设定，我都用下面的号码表记。
+#Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #4bba43, hi #91b6db, Translucent #283e5e 80
+# Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #283e5e 80
+# Colorset 1 fg #000000, fgsh #b5b7b8, bg #ffffff, hi #ffffff, sh #9a9a9a, Translucent #dce0e7 70
+# Colorset 3 fg #9aafbf, bg #000000, fgsh #000000, NoShape, RootTransparent, Tint #283e5e 70
+# Colorset 4 fg #ffffff, bg #000000, fgsh #000000, Noshape, RootTransparent, Tint #101f36 70
+Colorset 41 Transparent, fg white, bg average, Tint cyan 15, bgTint cyan 15 # tint is optional
+Colorset 42 Transparent, fg white, bg average, Tint blue 15, bgTint blue 15 # tint is optional
+
+
+###########窗口样式#############
+
+
+#FocusStyle设置focus样式，否则应该在样式名前加FP(如FPFocusByProgram)
+#FocusStyle * FocusByProgram, SloppyFocus
+
+#设置font为gb2312才能正确显示中文，使用xfontsel以产生相应的字符串
+Style * Font  "-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*,-arphic-uming-medium-*-*-*-12-*-*-*-p-*-iso10646-*,-isas-fangsong ti-*-*-*-*-*-120-*-*-*-*-gb2312.1980-*,-wenquanyi-wenquanyi-*-*-*-*-*-*-*-*-*-*-gbk-*"
+
+# to use fg and bg #前景色和后景色
+Style * Colorset 42, HilightColorset 41
+#Style * SmartPlacement, WindowShadeSteps 0, ResizeOutLine
+#标题栏上显示的按钮
+Style * Button 1, Button 2, Button 4, Button 6, Button 8 
+Style * GrabFocusOff
+Style * BorderWidth 0, HandleWidth 1
+#关闭窗口最小化和最大化时的动画。（如你喜欢改变窗口时的动画，就注销此句）
+Style * NoIcon
+#窗口最小化时成图标时，默认放在屏幕的左侧。下句是可具体设置其放置在屏幕的位置。（这里设的是在屏幕下面）
+#Style * IconBox 50 1050 1050 +15, SloppyFocus, MouseFocusClickRaises
+Style * IndexedIconName
+Style * MinOverlapPercentPlacement
+# Style * MinOverlapPercentPlacementPenalties 2 5 1 2 0.5 
+Style * ResizeOutLine
+Style * MouseFocusClickRaises
+#窗口出现的时候，先试图找一个可以放下它而不挡住其它窗口的地方，如果不行再采用层叠放置的方式
+Style * TileCascadePlacement
+Style * DecorateTransient
+
+
+#下面是透明的实现。如不使用透明，把下面的注销。
+# Style * Colorset 41, HilightColorset 42 # to use fg and bg
+BorderStyle Inactive Colorset 42 -- flat
+BorderStyle Active Colorset 41 -- flat
+TitleStyle AllInactive Colorset 42 -- flat
+TitleStyle AllActive Colorset 41 -- flat
+#ButtonStyle All -- UseTitleStyle flat
+#TitleStyle设置
+#简单说，fvwm在标题栏里，于设了10个按钮的位置。基本上用不完，其排列为，从左边说，1 3 5 7 9 ，从右边说2 4 6 8 0。我只设了5个位置，其中8好位置还没完成。
+
+# 设置标题栏的
+# FVWM上面标题栏按扭的排列是
+# 1 3 5 7 9 0 8 6 4 2
+# TitleStyle AllActive TiledPixmap bc.xpm ( ColorSet 8 -- Flat )
+# TitleStyle AllInactive TiledPixmap bc.xpm ( ColorSet 8 -- Flat )
+TitleStyle Height 22 -- Flat
+
+ButtonStyle All Simple -- UseTitleStyle
+ButtonStyle All -- Flat
+
+# AddButtonStyle 1 \
+# ActiveUp (Pixmap menu.png -- flat) \
+# ActiveDown (Pixmap menu.png -- flat) \
+# Inactive (Pixmap menu.png -- flat)
+
+# AddButtonStyle 2 \
+# ActiveUp (Pixmap close.png -- flat) \
+# ActiveDown (Pixmap close.png -- flat) \
+# Inactive (Pixmap close.png -- flat)
+# AddButtonStyle 4 \
+# ActiveUp (Pixmap max.png -- flat) \
+# ActiveDown (Pixmap max.png -- flat) \
+# Inactive (Pixmap max.png -- flat)
+# AddButtonStyle 6 \
+# ActiveUp (Pixmap min.png -- flat) \
+# ActiveDown (Pixmap min.png -- flat) \
+# Inactive (Pixmap min.png -- flat)
+# AddButtonStyle 8 \
+# ActiveUp (Pixmap min.png -- flat) \
+# ActiveDown (Pixmap min.png -- flat) \
+# Inactive (Pixmap min.png -- flat)
+
+#按钮的样式
+ButtonStyle 2 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+ButtonStyle 6 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+ButtonStyle 4 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+ButtonStyle 8 Inactive Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+ButtonStyle 1 Inactive Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+
+ButtonStyle 2 active Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
+ButtonStyle 4 active Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
+ButtonStyle 6 active Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
+ButtonStyle 8 active Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+ButtonStyle 1 active Vector 4 44x44@3 44x45@3 45x45@3 44x44@3 -- Flat
+
+# Styles for your common terminal emulator programs:
+Style "XTerm"       Icon xterm.xpm, SloppyFocus, IconBox -70 1 -1 -140
+Style "rxvt"        Icon term.xpm, SloppyFocus, IconBox -70 1 -1 -140
+Style "rxvt"        MWMBorder, MWMButtons
+
+# Styles for various common programs:
+Style "*lock"       NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus
+Style "xbiff"       NoTitle, Sticky, WindowListSkip, ClickToFocus
+Style "xcalc"       Icon xcalc.xpm, NoButton 2,ClickToFocus
+Style "xmh"         Icon mail1.xpm, NoIconTitle,StickyIcon
+Style "xmh"         NoButton 2
+Style "xman"        Icon xman.xpm, ClickToFocus
+Style "xmag"        Icon mag_glass.xpm, ClickToFocus
+Style "xgraph"      Icon graphs.xpm, ClickToFocus
+Style xmms          NoTitle
+Style xine          NoTitle
+
+
+#对所有名字以 "Fvwm" 开头的窗口(一般都是 FVWM 内部的模块)的设置。
+#它们都没有标题栏(NoTitle)，而且是sticky，也就是说即使桌面切换，它们也一直显示在屏幕上，
+Style "Fvwm*" NoTitle, Sticky, WindowListSkip
+#（BorderWidth 0）边框宽度为 0， CirculateSkip 说明当FVWM要求轮询窗口进行批量操作时，这些窗口不被计算在内
+Style "Fvwm*" BorderWidth 0, CirculateSkipIcon, CirculateSkip
+#下面3行说明 FvwmPager, FvwmBanner ,FvwmButtons这3个模块一直显示在最上面,不被其他窗口覆盖。
+#Style "FvwmPager" StaysOnTop
+#Style "FvwmBanner" StaysOnTop
+#Style "FvwmButtons" StaysOnTop,ClickToFocus
+
+
+#使用png图片装饰标题栏。
+#AddToFunc StartFunction
+#+ I Exec fvwm-root -r $HOME/wallpapers/sea.png

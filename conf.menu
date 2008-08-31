@@ -1,0 +1,261 @@
+######################## Menus ################### 下面这段是设定菜单的样
+#式（透明的哦，我很喜欢），字体等相关参数。
+MenuStyle * Hilight3DOff, HilightBack #424164, ActiveFore white
+Colorset 0 Transparent,fg white
+MenuStyle * MenuColorset 0
+MenuStyle * Foreground grey90
+MenuStyle * Background #1c5572
+MenuStyle * Font   "-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*,-isas-fangsong ti-medium-r-*-*-16-*-*-*-*-*-gb2312.1980-*"
+MenuStyle * BorderWidth 1, TitleUnderlines1, SeparatorsLong, TrianglesSolid
+MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%2.3>%2|"
+MenuStyle * AutomaticHotKeys
+#MenuStyle * MenuFace VGradient 128 1 #2c80A0 1 #1c5572 ColormapFocus FollowsFocus
+
+AddToMenu RootMenu      "Root Menu"     Title
++                       "XTerm"         Exec exec xterm
+# +                       "Rxvt"          Exec exec rxvt
+# +                       ""              Nop
++                       "Remote Logins" Popup Remote-Logins
++                       ""              Nop
++                       "Debian"        Popup /Debian
++                       "Utilities"     Popup Utilities
++                       ""              Nop
++                       "Fvwm Modules"            Popup Module-Popup
++                       "Fvwm Window Ops"         Popup Window-Ops
+# +                       "Fvwm Simple Config Ops"  Popup Misc-Ops
++                       ""              Nop
++                       "Refresh Screen"   Refresh
++                       "Recapture Screen" Recapture
++                       ""              Nop
++                       "Exit Fvwm"     Popup Quit-Verify
+AddToMenu Utilities     "Utilities" Title
++                       "Top"           Exec exec xterm -T Top -n Top -e top
++                       "Calculator"    Exec exec xcalc
++                       "Xman"          Exec exec xman
++                       "Xmag"          Exec exec xmag
++                       "Editres"       Exec exec editres
++                       ""              Nop
++                       "Reset X defaults" Exec xrdb -load $HOME/.Xdefaults
+
+# AddToMenu Misc-Ops "Misc Config Opts" Title
+# +                  "Sloppy Focus"        ChangeDefaultFocus SloppyFocus
+# +                  "Click To Focus"      ChangeDefaultFocus ClickToFocus
+# +                  "Focus Follows Mouse" ChangeDefaultFocus FocusFollowsMouse
+# +                  "" Nop
+# +                  "Colormap Follows Mouse" ColormapFocus FollowsMouse
+# +                  "Colormap Follows Focus" ColormapFocus FollowsFocus
+# +                  "" Nop
+# +                  "Full Paging ON"         EdgeScroll 100 100
+# +                  "All Paging OFF"         EdgeScroll 0 0
+# +                  "Horizontal Paging Only" EdgeScroll 100 0
+# +                  "Vertical Paging Only"   EdgeScroll 0 100
+# +                  "Partial Paging"         EdgeScroll 50 50
+# +                  "Full Paging && Edge Wrap" EdgeScroll 100000 100000
+AddToMenu Window-Ops    "Window Ops"    Title
++                       "Move"          Move
++                       "Resize"        Resize
++                       "Raise"         Raise
++                       "Lower"         Lower
++                       "(De)Iconify"   Iconify
++                       "(Un)Stick"     Stick
++                       "(Un)Maximize"  Maximize
++                       ""              Nop
++                       "Delete"        Delete
++                       "Close"         Close
++                       "Destroy"       Destroy
++                       ""              Nop
++                       "Refresh Window" RefreshWindow
+
+AddToMenu Window-Ops2   "&Move"         Move
++                       "&Resize"       Resize
++                       "R&aise"        Raise
++                       "&Lower"        Lower
++                       "(De)&Iconify"  Iconify
++                       "(Un)&Stick"    Stick
++                       "(Un)Ma&ximize" Maximize
++                       ""              Nop
++                       "&Delete"       Delete
++                       "&Close"        Close
++                       "Destroy"       Destroy
++                       ""              Nop
++                       "ScrollBar"     Module FvwmScroll 2 2
++                       "Print"         PrintFunction
++                       "Print Reverse" PrintReverseFunction
+# be sure to fill these in with your correct machine names:
+AddToMenu Remote-Logins "dopey"  Exec rsh dopey rxvt -display $HOSTDISPLAY &
++                       "snoopy" Exec rsh snoopy rxvt -display $HOSTDISPLAY &
++                       "grumpy" Exec rsh grumpy rxvt -display $HOSTDISPLAY &
++                       "happy"  Exec rsh happy rxvt -display $HOSTDISPLAY &
++                       "bailey" Exec rsh bailey rxvt -display $HOSTDISPLAY &
++                       "barnum" Exec rsh barnum rxvt -display $HOSTDISPLAY &
++                       "joker"  Exec rsh joker rxvt -display $HOSTDISPLAY &
++                       "signal" Exec rxterm signal
+
+AddToMenu Module-Popup  "FvwmModules"   Title
++                       "Identify"      Module  FvwmIdent
++                       "Talk"          Module  FvwmTalk
++                       ""              Nop
++                       "Button-Bar"    Module  FvwmButtons
++                       "Pager"         Module  FvwmPager 0 0
++                       "Pager (2 desks)" Module  FvwmPager 0 1
++                       "WinList"       Module  FvwmWinList
++                       ""              Nop
++                       "Banner"        Module  FvwmBanner
++                       "ScrollBar"     Module  FvwmScroll 50 50
++                       "Background"    Module  FvwmBacker
++                       "AutoRaise"     Module  FvwmAuto 200 Raise Nop
++                       "Stop AutoRaise" KillModule FvwmAuto
++                       ""              Nop
++                       "IconBox"       Module  FvwmIconBox
++                       "IconMan"       Module  FvwmIconMan
++                       ""              Nop
++                       "Form - Rlogin"      Module FvwmForm Rlogin
++                       "Form - MyFvwmTalk"  Module FvwmForm MyFvwmTalk
++                       "Form - QuitVerify"  Module FvwmForm QuitVerify
+
+AddToMenu Quit-Verify   "Really Quit Fvwm?" Title
++                       "Yes, Really Quit"  Quit
++                       ""                  Nop
++                       "Restart Fvwm"      Restart
+# +                       "Restart Fvwm 1.x"  Restart fvwm -s
+# +                       ""                  Nop
+# +                       "Start twm"         Restart twm
+# +                       "Start ctwm"        Restart ctwm
+# +                       "Start tvtwm"       Restart tvtwm
+# +                       "Start vtwm"        Restart vtwm
+# +                       "Start mwm"         Restart mwm
+# +                       "Start olwm"        Restart /usr/openwin/bin/olwm
+# +                       ""                  Nop
++                       "Start dummy"       Restart xterm
++                       ""                  Nop
++                       "No, Don't Quit"    Nop
+
+
+##########################Menu############################
+
+
+# #下面这段是设定主菜单显示的程序及一些子菜单的名字，NOP是分割线。
+# #-------------------------------------------------------------------------------------------------------------------
+# DestroyMenu MenuFvwmRoot
+# AddToMenu MenuFvwmRoot
+# + "Mlterm终端" Exec exec mlterm
+# + "Konsole终端" Exec exec konsole
+# + "gkp家目录" Exec exec konqueror /home/gkp
+# + "" Nop
+# + "OpenOffice办公套件" Exec exec openoffice
+# + "Ark" Exec exec ark
+# + "星际译王" Exec exec stardict
+# + "网络工具" Popup MenuInternet
+# + "Editor工具" Popup MenuEditors
+# + "多媒体程序" Popup MenuMultimedia
+# + "系统工具" Popup MenuUtilities
+# + "&运行..." Module FvwmForm FvwmForm-Run
+# #+ "Preferences" Popup MenuFvwmConfig
+# + "" Nop
+# + "退出窗口管理器" Popup MenuQuit-Verify
+
+# #下面是设定每个子菜单要显示的程序，可根据自己的情况删加
+
+# DestroyMenu MenuInternet
+# AddToMenu MenuInternet
+# + "Firefox-火狐" Exec exec firefox
+# + "opera" Exec exec opera
+# + "konqueror" Exec exec konqueror
+# + "Gftp" Exec exec gftp
+# + "Dillo" Exec exec dillo
+# + "D4x" Exec exec d4x
+# + "" nop
+# + "Network Analyser" Exec exec ethereal
+# + "Nmap security Scanner" Exec exec nmapfe
+# + "IRC Client" Exec exec xchat
+# + "Gaim" Exec exec gaim
+# + "LumaQQ" Exec exec lumaqq
+# DestroyMenu MenuEditors
+# AddToMenu MenuEditors
+# + "Kwrite" Exec exec kwrite
+# + "Kate" Exec exec kate
+# + "Vim Editor" Exec exec gvim -geom 115x46
+# + "Leafpad" Exec exec leafpad
+# + "Gedit" Exec exec gedit
+# + "Emacs CoffeeMachine" Exec exec emacs
+# + "Bluefish Html Editor" Exec exec bluefish
+# + "Amaya Html Editor" Exec exec amaya
+
+# DestroyMenu MenuMultimedia
+# AddToMenu MenuMultimedia
+# + "Kmix" Exec exec kmix
+# + "Kaffeine" Exec exec kaffeine
+# + "Totem" Exec exec totem
+# + "Xmms Media Player" Exec exec xmms
+# + "Amarok" Exec exec amarok
+# + "Xine" Exec exec xine
+# + "DisPlay" Exec exec display
+# + "" nop
+# + "TheGimp" Exec exec gimp
+# + "Blender" Exex exec blender
+# + "Gqview" Exec exec gqview
+# + "Gwenview" Exec exec gwenview
+# + "Ksnapshot" Exec exec ksnapshot
+# + "" nop
+# + "Sodipodi" Exec exec sodipodi
+# + "Audio CD Player" Exec exec grip
+# + "NeroLinux" Exec exec nero
+# + "K3b cd-burner" Exec exec k3b
+# + "Alsa Audio Mixer" Exec exec aterm -e alsamixer
+# + "Video Recorder" Exec exec gvidcap
+# + "Color controls" Exec exec gxvattr
+# + "EE" Exec exec ee
+
+# DestroyMenu MenuUtilities
+# AddToMenu MenuUtilities
+# + "Adobe Reader" Exec exec acroread
+# + "XPDF" Exec exec xpdf
+# + "Rox File Manager" Exec exec rox
+# + "VMware Workstation" Exec exec vmware
+# + "Gtk2 Theme Changer" Exec exec gtk-chtheme
+# + "GnuPg" Exec exec gpa
+# + "Xfont Selector" Exec exec xfontsel
+# + "&Screenshot" Exec exec ~/.fvwm/snapshot.sh
+# + "Window Information" Exec exec xmessage "`xwininfo`"
+# + "Magnifying Glass" Exec exec xmag
+# + "Show Desktop" All (AcceptsFocus CurrentPage !Iconic !Shaded) Thumbnail
+# + "Xdaliclock" Exec exec xdaliclock -24 -font or -fn -microsoft-Tahoma-medium-r-normal--24-0-0-0-p-0-iso8859-1 -geometry 100+100
+# DestroyMenu MenuGames
+# AddToMenu MenuGames
+# + MissingSubmenuFunction FuncFvwmMenuDirectory
+# + "Chess Database analyser" Exec exec scid
+# + "Eboard Chess Client" Exec exec eboard
+
+# DestroyMenu MenuQuit-Verify
+# AddToMenu MenuQuit-Verify
+# + "Exit FVWM Now... " Quit
+# + "Restart FVWM ..." Restart
+# + "Power Off" Exec exec /sbin/halt -p
+# + "Reset" Exec exec /sbin/reboot
+# + "&Lock Screen" Exec exec #xscreensaver-command -lock
+
+# DestroyMenu MenuFvwmConfig
+# AddToMenu MenuFvwmConfig
+# + "FvwmConsole" Module FvwmConsole -terminal rxvt
+# + "Colour Browser" Exec exec gcolor
+# + "Edit fvwm2rc" Exec exec gvim -geom 115x46 ~/.fvwm/.fvwm2rc
+# + "R&efresh" Refresh
+# + "&Xkill" Pick Destroy
+# + "Configure Screensaver..." Exec exec xscreensaver
+
+# DestroyMenu MenuFvwmWindowOps
+# AddToMenu MenuFvwmWindowOps
+# + "Resize" Pick Resize
+# + "Shade" Pick WindowShade Toggle
+# + "" Nop
+# + "Stick" Pick Stick
+# + "Scroll" Pick Module FvwmScroll
+# + "Refresh" Pick RefreshWindow
+# + "" Nop
+# + "Identify" Pick Module FvwmIdent
+# + "Zoom" Pick Exec exec xmag -source $[w.width]x$[w.height]+$[w.x]+$[w.y] -mag 2
+# + "" Nop
+# + "Close" Close
+# + "Destroy" Destroy
+
+

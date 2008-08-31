@@ -1,0 +1,35 @@
+######################## Initialization Functions ############################
+AddToFunc StartFunction
++ I Module FvwmCommand
+#+ I Module FvwmButtons MainPanel
+#+ I Module FvwmAuto 500 Raise Nop
+#+ I Module FvwmAnimate
+#+ I Module FvwmTaskBar
+#+ I Exec exec xdaliclock
+#+ I Exec exec xloadimage -onroot -fullscreen ~/pic/cat_20.jpg
+
+AddToFunc InitFunction
+ + I exec xsetroot -mod 2 2 -fg rgb:55/40/55 -bg rgb:70/50/70
+ + I Exec exec tilda
+#  + I Exec exec fcitx
+# + I Exec exec trayer --widthtype request --heighttype request --align right --edge top
+ + I Exec exec fbpanel
+ + I Exec exec firefox
+ + I Exec exec emacs
+ + I Exec exec pidgin
+ + I Exec exec xchat
+ + I Exec exec xscreensaver -no-splash
+#  + I Exec exec update-notifier
+ 
+# For some SM-s (like gnome-session) there is an internal background setter.
+AddToFunc SessionInitFunction
+#+ I All (xdaliclock) Close
++ I All (xscreensaver) Close
++ I All (firefox) Close
++ I All (fcitx) Close
+# + I All (trayer) Close
++ I All (pidgin) Close
++ I ALL (xscreensaver) Close
++ I ALL (xchat) Close
+# + I ALL (update-notifier) Close
+# + I Nop

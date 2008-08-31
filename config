@@ -1,0 +1,37 @@
+# this is a bare bones sample .fvwm2rc/system.fvwm2rc file for fvwm.  It
+# should be customized before install.  See other sample .fvwm2rc files
+# for hints, as well as pointers from the various links on the official
+# fvwm web page (see the FAQ).
+
+# 加入一些路径,FVWM在这些路径中查找后面要用到的图标
+ImagePath ${HOME}/.fvwm/image:+
+ImagePath usr/share/icons:+
+
+#插入另外一个文件file的内容
+Read conf.functions
+Read conf.style
+Read conf.cusStyle
+Read conf.menu
+Read conf.startup
+Read conf.keybinding
+
+##Read f.module
+# Read f.Mouse
+# Read f.ButtonStyle
+# Read f.autohiding
+# Read f.buttonbar
+# Read f.taskbar
+# Read f.pager
+# Read f.iconman
+
+# 窗口最大化是两边撑满,而上面留出20个(像素?),下面相应的留出25
+EwmhBaseStruts 0 0 5 0
+
+#使用EdgeScroll命令禁止flipping pages（鼠标不会因为接近屏幕边缘而进入相近的桌面）
+EdgeScroll 0 0
+
+# 用来设定桌面的大小,这里只设置了一个桌面,但是有8页
+DeskTopSize 1x1
+
+#EdgeResistance 250 10
+ClickTime 750

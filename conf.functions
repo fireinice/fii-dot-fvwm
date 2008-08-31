@@ -1,0 +1,99 @@
+######################## Sample Functions ##########################
+
+AddToFunc MailFunction     I Next (AcceptsFocus $0) Iconify -1
++                          I Next (AcceptsFocus $0) Focus
++                          I None (AcceptsFocus $0) Exec $0 $1
+
+AddToFunc Move-or-Raise         I Raise
++                               M Move
++                               D Lower
+
+AddToFunc Move-or-Raise2        M Raise
++                               M Move
++                               D Lower
+
+AddToFunc Maximize-Func         M Maximize       0 100
++                               C Maximize       0 80
++                               D Maximize       100 100
+
+AddToFunc Move-or-Iconify       I Raise
++                               M Move
++                               D Iconify
+
+AddToFunc Resize-or-Raise       I Raise
++                               M Resize
++                               D Lower
+
+AddToFunc Resize-or-Raise2      M Raise
++                               M Resize
++                               D Lower
+
+AddToFunc PrintFunction         I Raise
++                               I Exec xdpr -id $w
+
+AddToFunc PrintReverseFunction  I Raise
++                               I Exec xdpr 1/2 -h -rv -id $w
+
+AddToFunc Iconify-and-Raise     I Iconify
++                               I Raise
+
+DestroyFunc RaiseAndFocus
+AddToFunc RaiseAndFocus
++ I Focus
++ I Raise
+ 
+DestroyFunc JOE
+AddToFunc JOE
++ I All ($0) RaiseAndFocus
++ I TestRc (NoMatch) Exec exec $1
+
+DestroyFunc stickTop
+AddToFunc stickTop
++ I ThisWindow (Layer 5) Layer default
++ I TestRc (NoMatch) Layer 1
+
+# RLOGIN machine fg bg
+AddToFunc RLOGIN I Exec xterm -fg $1 -bg $2 -e rlogin $0 -8
+
+# TELNET machine fg bg
+AddToFunc TELNET I Exec xterm -fg $1 -bg $2 -e telnet $0
+
+AddToFunc FocusAndWarp I Focus
++                      I WarpToWindow 2p 2p
+
+AddToFunc DeiconifyFocusAndWarp I Iconify -1
++                               I FocusAndWarp
+
+AddToFunc ChangeDefaultFocus I Style * $0
++                            I Recapture
+
+DestroyFunc RaiseWindow
+AddToFunc RaiseWindow
++ I ALL ($0) WarpToWindow 100 100
+# DestroyFunc FuncFvwmFocusPolicyChange
+# AddToFunc FuncFvwmFocusPolicyChange
+# + I Style * $0
+# + I Recapture
+
+# DestroyFunc DestroyOnHold
+# AddToFunc DestroyOnHold I Raise
+# + C Schedule 50 Close
+# + H Destroy
+
+# AddToFunc StartFunction I FvwmEvent FvwmEvent-NewWindow
+
+# AddToFunc Move-or-Raise I Raise
+# + M Move
+# + D WindowShade Toggle
+
+# AddToFunc Maximize-Func M Maximize 0 100
+# + C Maximize 0 80
+# + D Maximize 100 100
+
+# AddToFunc Move-or-Iconify I Raise
+# + M Move
+# + D Iconify
+
+# AddToFunc Resize-or-Raise I Raise
+# + M Resize
+# + D Lower

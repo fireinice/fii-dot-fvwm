@@ -1,0 +1,6 @@
+Style "gRun*"       StaysOnTop, StaysPut, NoTitle, NoHandles, Layer 8, GrabFocus
+Style "trayer"      StaysOnTop, NoTitle, NoHandles
+Style "fbpanel"     StaysOnTop, NoTitle, NoHandles
+Style "xfce4-panel" StaysOnTop, NoTitle, NoHandles, Layer 9
+Style "feh"         GrabFocus
+# Style "Firefox*"    NoTitle
