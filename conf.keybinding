@@ -16,7 +16,9 @@
 #Key Keyname Context Modifiers Function
 Key Next         A       SCM     Next (AcceptsFocus) Focus
 Key Prior        A       SCM     Prev (AcceptsFocus) Focus
-Key F4           A       M       Close
+Key Print	 A	 N	 Exec exec gnome-screenshot
+Key Print	 A	 M	 Exec exec gnome-screenshot -a
+Key 4           A       M       Close
 Key F3           A       M       Module FvwmConsole -terminal rxvt
 Key R            A       CM      Restart
 
@@ -28,13 +30,16 @@ Key W            A       4       Menu WindowList
 Key S            A       4       stickTop
 
 Key E            A       4       JOE "emacs" emacs
-Key F            A       4	 JOE "Iceweasel*" firefox
+Key F            A       4	 JOE "*Firefox*" firefox
 Key T            A       4       JOE "urxvt*" urxvtcd
-Key R            A       4       JOE "qterm" qterm
-Key D            A       4       JOE "pidgin" pidgin
+# Key R            A       4       JOE "fqterm.bin" fqterm
+# Key D            A       4       JOE "Franz" Franz
 Key C 		 A 	 4 	 JOE "stardict" stardict
 Key O            A 	 4 	 JOE "Adobe Reader" acroread
-Key I            A 	 4 	 JOE "XChat*" xchat
+# Key I            A 	 4 	 JOE "XChat*" xchat
+# Key M            A 	 4 	 JOE "*Icedove*" icedove
+Key H            A 	 4 	 JOE "*Chromium" chromium
+# Key I            A 	 4 	 JOE "*IntelliJ IDEA*" idea
 
 # some simple default mouse bindings:
 #   for the root window:

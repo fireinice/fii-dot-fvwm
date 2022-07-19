@@ -5,7 +5,8 @@ Colorset 0 Transparent,fg white
 MenuStyle * MenuColorset 0
 MenuStyle * Foreground grey90
 MenuStyle * Background #1c5572
-MenuStyle * Font   "-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*,-isas-fangsong ti-medium-r-*-*-16-*-*-*-*-*-gb2312.1980-*"
+MenuStyle * Font "-*-fangsong ti-*-*-*-*-16-*-*-*-*-*-gb2312.1980-*,-misc-fixed-medium-*-*-*-14-*-*-*-*-*-iso8859-*"
+#MenuStyle * Font   "-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*,-isas-fangsong ti-medium-r-*-*-16-*-*-*-*-*-gb2312.1980-*"
 MenuStyle * BorderWidth 1, TitleUnderlines1, SeparatorsLong, TrianglesSolid
 MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%2.3>%2|"
 MenuStyle * AutomaticHotKeys

@@ -40,7 +40,9 @@ Colorset 42 Transparent, fg white, bg average, Tint blue 15, bgTint blue 15 # ti
 #FocusStyle * FocusByProgram, SloppyFocus
 
 #设置font为gb2312才能正确显示中文，使用xfontsel以产生相应的字符串
-Style * Font  "-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*,-arphic-uming-medium-*-*-*-12-*-*-*-p-*-iso10646-*,-isas-fangsong ti-*-*-*-*-*-120-*-*-*-*-gb2312.1980-*,-wenquanyi-wenquanyi-*-*-*-*-*-*-*-*-*-*-gbk-*"
+# Style * Font  "-adobe-helvetica-bold-r-normal-*-12-*-*-*-*-*-iso8859-*,-*-song ti-*-*-*-*-16-*-*-*-*-*-gb2312.1980-*,-wenquanyi-wenquanyi-medium-r-normal-*-*-*-*-*-*-*-gbk-*"
+# Style * Font  "-wenquanyi-wenquanyi-medium-r-normal-*-*-*-*-*-*-*-gbk-*"
+Style * Font "-*-song ti-*-*-*-*-16-*-*-*-*-*-gb2312.1980-*,-misc-fixed-medium-*-*-*-14-*-*-*-*-*-iso8859-*"
 
 # to use fg and bg #前景色和后景色
 Style * Colorset 42, HilightColorset 41
